@@ -7,6 +7,9 @@
 // const number = Number(value);
 // console.log(number); // NaN
 
+// -----------------------
+
+
 // // Парс числа.
 
 // const blockWidth = '300px';
@@ -22,6 +25,9 @@
 // const width1 = Number.parseFloat(blockWidth1);
 
 // console.log(width1); // 300.5
+
+// -----------------------
+
 
 // Объект Math
 

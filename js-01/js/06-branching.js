@@ -8,6 +8,9 @@
 
 // console.log("after");
 
+// -----------------------
+
+
 // if...else и баланс на счету
 
 // let balance = 10000;
@@ -24,6 +27,8 @@
 // }
 
 // console.log('До свидания!');
+
+// -----------------------
 
 
 // if...else if и скидка
@@ -51,6 +56,10 @@
 
 // console.log(`Оформлен заказ на сумму ${finalAmount} со скидкой ${discount *100}%.`);
 
+
+// -----------------------
+
+
 // // Область видимости
 
 // const name = 'Mango';
@@ -64,14 +73,15 @@
 // }
 
 
-let discount = 0;
+// let discount = 0;
 
-if (true) {
-  discount = 10;
-  const age = 5;
-}
+// if (true) {
+//   discount = 10;
+//   const age = 5;
+// }
 
-console.log(discount);
-console.log(age); // age is not defined
+// console.log(discount);
+// console.log(age); // age is not defined
     
+
 

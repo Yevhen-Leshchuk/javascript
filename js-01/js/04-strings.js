@@ -21,6 +21,9 @@ console.log(5 + 5 + '5'); // 10 + 5 = '105'
 //     room;
 // console.log(message);
 
+// -----------------------
+
+
 // Шаблонная строка
 const message = `Гость ${firstName} ${lastName} поселяется в ${type} номер ${room}`;
 console.log(message);

@@ -13,6 +13,9 @@
 // console.log(5 && 10); // 10 // true && true
 // console.log(0 && 10); // 0 // folse && true
 
+// -----------------------
+
+
 // 1 - Числовой отрезок и вхождение значения в отрезок
 // const number = 20;
 
@@ -38,6 +41,9 @@
 // console.log(!5); // false
 // console.log(!0); // true
 
+// -----------------------
+
+
 // 2 - Возможность открыть живой чат online и не dnd
 
 // const isOnline = true;
@@ -46,6 +52,9 @@
 
 // const canOpenChat = isOnline && isFriend && !isDnd;
 // console.log(' canOpenChat:', canOpenChat); // true
+
+// -----------------------
+
 
 // 3 - Проверка подписки пользователя при доступе к контенту
  
