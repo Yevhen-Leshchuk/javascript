@@ -11,12 +11,14 @@
 
 
 const total = 100;
-const ordered = 130;
+const ordered = 90;
+const messageNotEnoughGoods = 'На складе недостаточно твоаров!';
+const messageOrderConfirmed = 'Заказ оформлен, с вами свяжется менеджер';
 
 if (ordered <= total) {
     
-    console.log("Заказ оформлен, с вами свяжется менеджер");
+    console.log(messageOrderConfirmed);
 
 } else {
-    console.log("На складе недостаточно твоаров!");
+    console.log(messageNotEnoughGoods);
 }

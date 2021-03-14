@@ -16,17 +16,17 @@
 const ADMIN_PASSWORD = 'jqueryismyjam';
 let message;
 
-let userInput = prompt('Введите пароль');
+const userInput = prompt('Введите пароль');
 
 if  (userInput === null) {
 
     message = 'Отменено пользователем!';
     
-} else if (userInput === 'jqueryismyjam') {
+} else if (userInput === ADMIN_PASSWORD) {
 
     message = 'Добро пожаловать!';
 
-} else if (userInput !== 'jqueryismyjam') {
+} else  {
 
     message = 'Доступ запрещен, неверный пароль!';
 }
