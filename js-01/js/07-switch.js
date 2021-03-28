@@ -70,11 +70,11 @@
 //         result = 'case1';
 //         break;
     
-//  case 2:
+//      case 2:
 //         result = 'case2';
 //         break;
     
-//      case 31:
+//      case 3:
 //         result = 'case3';
 //         break;
     
