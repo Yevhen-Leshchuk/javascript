@@ -9,14 +9,14 @@
 const formatString = function (string) {
 
   const stringLenght = string.split('');
-  
-    if (stringLenght.length < 40) {
-      return string;
-    } else 
-      string = stringLenght.slice(0, 41);
-      string.push('.', '.', '.');
-      const shortString = string.join('');
-      return shortString;
+
+  if (stringLenght.length < 40) {
+    return string;
+  } else
+    string = stringLenght.slice(0, 41);
+  string.push('.', '.', '.');
+  const shortString = string.join('');
+  return shortString;
 };
 
 console.log(formatString('Curabitur ligula sapien, tincidunt non.'));

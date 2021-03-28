@@ -21,8 +21,8 @@ console.log('b', b);
 b[1] = 20;
 console.log('a', a);
 console.log('b', b);
- 
-console.log('a === b' , a === b);
+
+console.log('a === b', a === b);
 
 // console.log(5 === 5);
 // console.log([1, 2, 3] === [1, 2, 3]);

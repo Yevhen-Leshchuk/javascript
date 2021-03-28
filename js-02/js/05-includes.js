@@ -23,5 +23,5 @@ const result = staff.includes(query)
     ? 'Сотрудник на работе!'
     : 'Сотрудника нет';
 
- console.log(result);
+console.log(result);
 

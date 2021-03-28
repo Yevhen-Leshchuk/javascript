@@ -31,7 +31,7 @@
 
 
 // for (let i = 0; i < friends.length; i += 1) {
-    
+
 //     console.log(i);
 //     console.log(friends[i]);
 // }
@@ -72,7 +72,7 @@
 //         break;
 //     } 
 //         message = 'такого друга нет';
-    
+
 // }
 // console.log(message);
 
@@ -84,10 +84,10 @@ let message = 'такого друга нет';
 
 for (const friend of friends) {
 
-    if (nameToFind === friend) {
-        message = `Нашли такого друга : '${nameToFind}'`;
-        break;
-    } 
+  if (nameToFind === friend) {
+    message = `Нашли такого друга : '${nameToFind}'`;
+    break;
+  }
 }
 console.log(message);
 

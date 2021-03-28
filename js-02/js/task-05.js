@@ -6,10 +6,10 @@
 // Слова в строке могут быть в произвольном регистре.
 
 const checkForSpam = function (message) {
-  
+
   const normalizedMessage = message.toLowerCase();
   return normalizedMessage.includes('sale') || normalizedMessage.includes('spam');
-  
+
 };
 
 console.log(checkForSpam('Latest technology news')); // false

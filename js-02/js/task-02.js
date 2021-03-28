@@ -4,19 +4,19 @@
 // принимающую строку(в строке будут только слова и пробелы) и цену гравировки одного слова,
 //     и возвращающую цену гравировки всех слов в строке.
 
-const calculateEngravingPrice = function(message, pricePerWord) {
-   
-    const words = message.split(' ');
-    console.log(words, pricePerWord);
+const calculateEngravingPrice = function (message, pricePerWord) {
 
-    const numbers = [];
+  const words = message.split(' ');
+  console.log(words, pricePerWord);
 
-    for (let i = 0; i <= words.length; i += 1) {
-        numbers.push(i);
-        let totalPrice = words.length * pricePerWord;
+  const numbers = [];
 
-        return `Стоимость гравировки всех слов: ${totalPrice}`;
-    }      
+  for (let i = 0; i <= words.length; i += 1) {
+    numbers.push(i);
+    let totalPrice = words.length * pricePerWord;
+
+    return `Стоимость гравировки всех слов: ${totalPrice}`;
+  }
 };
 
 console.log(

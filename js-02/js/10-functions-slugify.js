@@ -32,7 +32,7 @@
 // -----------------------
 
 // Делаем массив слагов
-  const slugify = function (string) {
+const slugify = function (string) {
   const words = string.toLowerCase().split(" ");
   const slug = words.join("-");
 
