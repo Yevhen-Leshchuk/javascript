@@ -8,7 +8,7 @@
 const checkForSpam = function (message) {
 
   const normalizedMessage = message.toLowerCase();
-  return normalizedMessage.includes('sale') || normalizedMessage.includes('spam');
+  return (normalizedMessage.includes('sale') || normalizedMessage.includes('spam'));
 
 };
 
@@ -19,5 +19,3 @@ console.log(checkForSpam('JavaScript weekly newsletter')); // false
 console.log(checkForSpam('Get best sale offers now!')); // true
 
 console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
-
-
