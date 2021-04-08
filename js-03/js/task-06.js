@@ -12,13 +12,10 @@ const products = [
 ];
 
 const calculateTotalPrice = function (allProducts, productName) {
-  //console.log(allProducts);
-  //console.log(productName);
-  //console.log(keys);
+
   let totalPrice = 0;
 
   for (const product of allProducts) {
-    // console.log(product);
     if (product.name === productName) {
       totalPrice = product.price * product.quantity;
     }
