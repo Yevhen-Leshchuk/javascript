@@ -12,7 +12,7 @@ const user = {
   premium: true,
 };
 
-user.mod = 'happy';
+user.mood = 'happy';
 user.hobby = 'skydiving';
 user.premium = false;
 
