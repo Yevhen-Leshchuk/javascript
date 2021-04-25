@@ -12,7 +12,6 @@
 class StringBuilder {
   constructor(value) {
     this._value = value;
-    // console.log(this._value);
   }
 
   get value() {
