@@ -84,7 +84,7 @@
 
 class Car {
   static getSpecs = function (car) {
-    // console.log(mustang.maxSpeed, mustang.speed, mustang.isOn, mustang.distance, mustang._price);
+    // console.log(car.maxSpeed, car.speed, car.isOn, car.distance, car._price);
     const { maxSpeed, speed, isOn, distance, price } = car;
     console.log(
       `maxSpeed: ${maxSpeed}, speed: ${speed}, isOn: ${isOn}, distance: ${distance}, price: ${price}`
@@ -116,18 +116,12 @@ class Car {
   }
 
   accelerate(value) {
-    // if (value < this.maxSpeed) {
-    //   this.speed = value;
-    // }
     if (this.speed + value <= this.maxSpeed) {
       this.speed = this.speed + value;
     }
   }
 
   decelerate(value) {
-    // if (value > 0) {
-    //   this.speed -= value;
-    // }
     if (this.speed - value >= 0) {
       this.speed = this.speed - value;
     }
