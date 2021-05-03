@@ -8,8 +8,8 @@ console.log("users :", users);
 // Получить пользоваля(не массив) по email(поле email, он уникальный).
 
 const getUserWithEmail = (users, email) => {
-  const name = users.find(user => user.email === email);
-  return name;
+  const getUser = users.find(user => user.email === email);
+  return getUser;
 };
 
 console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
