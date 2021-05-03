@@ -131,7 +131,7 @@ class Car {
     // if (this.isOn === true) {
     //   this.distance = hours * this.speed;
     // }
-    if (this.turnOn) {
+    if (this.isOn) {
       this.distance = hours * this.speed;
     }
   }

@@ -10,8 +10,8 @@
 // Метод pad(str) - получает парметр str(строку) и добавляет ее в начало и в конец _value
 
 class StringBuilder {
-  constructor(value) {
-    this._value = value;
+  constructor(str) {
+    this._value = str;
   }
 
   get value() {
@@ -19,15 +19,15 @@ class StringBuilder {
   }
 
   append(str) {
-    this._value = `${this._value}${str}`;
+    return this._value = `${this.value}${str}`;
   }
 
   prepend(str) {
-    this._value = `${str}${this._value}`;
+    return this._value = `${str}${this.value}`;
   }
 
   pad(str) {
-    this._value = `${str}${this._value}${str}`;
+    return this._value = `${str}${this.value}${str}`;
   }
 }
 
