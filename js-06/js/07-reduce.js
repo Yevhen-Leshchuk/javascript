@@ -101,7 +101,7 @@
 //   { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
 // ];
 
-// 1. Собираем все теги из твитов:
+// // 1. Собираем все теги из твитов:
 // const allTags = tweets.reduce(function (tags, tweet) {
 //   tags.push(...tweet.tags);
 
