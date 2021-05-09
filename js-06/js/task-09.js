@@ -10,7 +10,6 @@ console.log("users :", users);
 
 const getNamesSortedByFriendsCount = users => {
   const nameArray = users
-    .filter(user => user.friends.length)
     .sort((prevFriends, nextFriends) =>
       prevFriends.friends.length - nextFriends.friends.length)
     .map(user => user.name);
