@@ -31,7 +31,7 @@ console.log(ingredientsRef);
 const array = ingredients.map(ingredient => {
   const listRef = document.createElement('li');
   listRef.textContent = ingredient;
-  ingredientsRef.append(listRef);
+  ingredientsRef.appendChild(listRef);
   return ingredientsRef;
 });
 
