@@ -45,24 +45,49 @@ const images = [
   },
 ];
 
-const createGallery = (image => {
+//Решение 1.
 
-  const itemRef = document.createElement('li');
-  itemRef.classList.add('gallery__item');
+// const galleryRef = document.querySelector('#gallery');
 
-  const imageRef = document.createElement('img');
-  imageRef.src = image.url;
-  imageRef.alt = image.alt;
+// const createGallery = (image => {
 
-  itemRef.appendChild(imageRef);
+//   const itemRef = document.createElement('li');
+//   itemRef.classList.add('gallery__item');
 
-  return itemRef;
+//   const imageRef = document.createElement('img');
+//   imageRef.src = image.url;
+//   imageRef.alt = image.alt;
+
+//   itemRef.appendChild(imageRef);
+
+//   return itemRef;
+// });
+
+// const arrayImages = images.map(image => createGallery(image));
+
+// galleryRef.append(...arrayImages);
+
+// console.log(galleryRef);
+
+//Решение 2.
+
+const galleryRef = document.querySelector("#gallery");
+const fragment = document.createDocumentFragment();
+
+images.forEach((el) => {
+  const itemRef = document.createElement("li");
+
+  itemRef.insertAdjacentHTML(
+    "afterbegin",
+    `<img src = ${el.url} alt = ${el.alt} width = "420", height = "250">`
+  );
+
+  console.log(itemRef);
+  fragment.append(itemRef);
 });
 
-const arrayImages = images.map(image => createGallery(image));
-
-const galleryRef = document.querySelector('#gallery');
-
-galleryRef.append(...arrayImages);
-
-console.log(galleryRef);
+galleryRef.appendChild(fragment);
+galleryRef.style.listStyle = "none";
+galleryRef.style.display = "flex";
+galleryRef.style.flexWrap = "wrap";
+galleryRef.style.justifyContent = "space-between";

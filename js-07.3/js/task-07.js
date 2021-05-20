@@ -8,17 +8,18 @@
 // <br />
 // <span id="text">Абракадабра!</span>
 
-const inputRef = document.querySelector('#font-size-control');
-const textRef = document.querySelector('#text');
+const inputRef = document.querySelector("#font-size-control");
+const titleRef = document.querySelector("#text");
 
+inputRef.value = 14;
 
-inputRef.addEventListener('input', handleInputRange);
+inputRef.addEventListener("input", handleInputChange);
 
-function handleInputRange(input) {
+function handleInputChange(e) {
+  console.log(e.target.value);
 
-  textRef.style.fontSize = input.target.value + 'px';
+  titleRef.style.fontSize = e.target.value + "px";
 }
-
 
 
 

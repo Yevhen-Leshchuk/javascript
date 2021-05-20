@@ -17,24 +17,27 @@
 // используй document.createElement().
 
 const ingredients = [
-  'Картошка',
-  'Грибы',
-  'Чеснок',
-  'Помидоры',
-  'Зелень',
-  'Приправы',
+  "Картошка",
+  "Грибы",
+  "Чеснок",
+  "Помидоры",
+  "Зелень",
+  "Приправы",
 ];
 
-const ingredientsRef = document.querySelector('#ingredients');
-console.log(ingredientsRef);
+const ingredientsRef = document.querySelector("#ingredients");
+const fragment = document.createDocumentFragment();
 
-const array = ingredients.map(ingredient => {
-  const listRef = document.createElement('li');
-  listRef.textContent = ingredient;
-  ingredientsRef.appendChild(listRef);
-  return ingredientsRef;
+ingredients.forEach((el) => {
+  // console.log(el);
+  const itemRef = document.createElement("li");
+
+  itemRef.textContent = el;
+  fragment.append(itemRef);
+  console.log(itemRef);
 });
 
+ingredientsRef.appendChild(fragment);
 
 
 

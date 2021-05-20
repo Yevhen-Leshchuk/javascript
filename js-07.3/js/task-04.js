@@ -10,6 +10,8 @@
 //   <button type="button" data-action="increment">+1</button>
 // </ div >
 
+//Решение 1.
+
 const incrementBtnRef = document.querySelector('button[data-action="increment"]');
 const decrementBtnRef = document.querySelector('button[data-action="decrement"]');
 const valueRef = document.querySelector('#value');
@@ -30,4 +32,30 @@ function decrementValue() {
   valueRef.textContent = counterValue;
 }
 
+//Решение 2.
+
+// const decrementBtnRef = document.querySelector(
+//   'button[data-action="decrement"]'
+// );
+
+// const incrementBtnRef = document.querySelector(
+//   'button[data-action="increment"]'
+// );
+
+// const valueRef = document.querySelector("#value");
+
+// let counterValue = 0;
+
+// const handleIncrement = () => {
+//   counterValue += 1;
+//   valueRef.textContent = counterValue;
+// };
+
+// const handleDecrement = () => {
+//   counterValue = counterValue - 1 >= 0 ? counterValue - 1 : counterValue;
+//   valueRef.textContent = counterValue;
+// };
+
+// incrementBtnRef.addEventListener("click", handleIncrement);
+// decrementBtnRef.addEventListener("click", handleDecrement);
 
