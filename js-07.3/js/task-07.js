@@ -20,24 +20,3 @@ function handleInputChange(e) {
 
   titleRef.style.fontSize = e.target.value + "px";
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -38,7 +38,3 @@ ingredients.forEach((el) => {
 });
 
 ingredientsRef.appendChild(fragment);
-
-
-
-

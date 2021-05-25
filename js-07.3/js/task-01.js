@@ -59,5 +59,3 @@ listRef.forEach(el => {
   console.log("Категория:", category);
   console.log("Количество элементов:", quantity);
 });
-
-

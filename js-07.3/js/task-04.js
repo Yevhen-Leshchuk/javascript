@@ -58,4 +58,3 @@ function decrementValue() {
 
 // incrementBtnRef.addEventListener("click", handleIncrement);
 // decrementBtnRef.addEventListener("click", handleDecrement);
-

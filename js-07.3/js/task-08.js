@@ -64,4 +64,3 @@ function destroyBoxes() {
   height = 30;
   inputRef.value = "";
 }
-
