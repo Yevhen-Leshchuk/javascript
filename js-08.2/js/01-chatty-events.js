@@ -19,7 +19,7 @@ const throttledMousemoveCallback = _.throttle((event) => {
     X: ${event.clientX},
     Y: ${event.clientY}
   `;
-}, 100);
+}, 500);
 
 window.addEventListener("mousemove", throttledMousemoveCallback);
 
@@ -37,6 +37,6 @@ const debouncedInputCallback = _.debounce((event) => {
     Кол-во вызовов callback-функции 💩: ${inputCallbackCounter},
     Значение: ${event.target.value}
   `;
-}, 300);
+}, 1000);
 
 inputRef.addEventListener("input", debouncedInputCallback);
