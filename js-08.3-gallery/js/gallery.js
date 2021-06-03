@@ -14,7 +14,7 @@ galleryRef.addEventListener('click', onOpenModal);
 closeModalRef.addEventListener('click', onCloseModal);
 lightboxRef.addEventListener('click', onLightboxClick);
 
-gallery.forEach((el) => {
+gallery.forEach((el, index) => {
   const itemRef = document.createElement("li");
   itemRef.classList.add('gallery__item');
 
@@ -26,8 +26,8 @@ gallery.forEach((el) => {
   galleryImgRef.classList.add('gallery__image');
   galleryImgRef.src = el.original;
   galleryImgRef.setAttribute("data-source", el.original);
+  galleryImgRef.setAttribute("data-index", index);
   galleryImgRef.alt = el.description;
-
   linkRef.appendChild(galleryImgRef);
   itemRef.appendChild(linkRef);
 
@@ -36,9 +36,14 @@ gallery.forEach((el) => {
 
 galleryRef.appendChild(fragment);
 
+let activeIndex = [];
 
 function onOpenModal(event) {
+
   window.addEventListener('keydown', onPressEscape);
+  window.addEventListener('keydown', onPressArrowRight);
+  window.addEventListener('keydown', onPressArrowLeft);
+
   event.preventDefault();
   if (event.target.nodeName !== 'IMG') {
     return;
@@ -46,6 +51,8 @@ function onOpenModal(event) {
   const imageRef = event.target;
   const largeImageURL = imageRef.dataset.source;
   lightboxImageRef.src = largeImageURL;
+  activeIndex = [imageRef.dataset.index];
+
   openModalRef.classList.add('is-open');
 }
 
@@ -67,3 +74,24 @@ function onPressEscape(e) {
   }
 }
 
+function onPressArrowRight(e) {
+
+  if (e.code === 'ArrowRight') {
+    activeIndex = [+activeIndex + +1];
+    if (activeIndex < 0 || activeIndex > gallery.length - 1) {
+      return;
+    }
+    lightboxImageRef.src = gallery[activeIndex].original;
+  }
+}
+
+function onPressArrowLeft(e) {
+
+  if (e.code === 'ArrowLeft') {
+    activeIndex = [activeIndex - 1];
+    if (activeIndex < 0 || activeIndex > gallery.length - 1) {
+      return;
+    }
+    lightboxImageRef.src = gallery[activeIndex].original;
+  }
+}
