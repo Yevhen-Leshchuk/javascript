@@ -1,97 +1,114 @@
-import gallery from "./gallery-items.js";
-console.log("gallery :", gallery);
+import gallery from './gallery-items.js';
+console.log('gallery :', gallery);
 
-
-const galleryRef = document.querySelector('.js-gallery');
-const openModalRef = document.querySelector('.js-lightbox');
-const closeModalRef = document.querySelector('button[data-action="close-lightbox"]');
-const lightboxImageRef = document.querySelector('.lightbox__image');
-const lightboxRef = document.querySelector('.lightbox__overlay');
+const refs = {
+  galleryRef: document.querySelector('.js-gallery'),
+  openModalRef: document.querySelector('.js-lightbox'),
+  closeModalRef: document.querySelector('button[data-action="close-lightbox"]'),
+  lightboxImageRef: document.querySelector('.lightbox__image'),
+  lightboxRef: document.querySelector('.lightbox__overlay'),
+};
+console.log(refs);
 
 const fragment = document.createDocumentFragment();
 
-galleryRef.addEventListener('click', onOpenModal);
-closeModalRef.addEventListener('click', onCloseModal);
-lightboxRef.addEventListener('click', onLightboxClick);
+refs.galleryRef.addEventListener('click', onOpenModal);
+refs.closeModalRef.addEventListener('click', onCloseModal);
+refs.lightboxRef.addEventListener('click', onLightboxClick);
 
 gallery.forEach((el, index) => {
-  const itemRef = document.createElement("li");
+  const itemRef = document.createElement('li');
+
   itemRef.classList.add('gallery__item');
+  itemRef.insertAdjacentHTML(
+    'afterbegin',
+    `<a class="gallery__link" href="${el.original}">
+      <img class="gallery__image" src="${el.preview}" data-source="${el.original}" data-index="${index}" alt="${el.description}">
+    </a>`
+  );
 
-  const linkRef = document.createElement("a");
-  linkRef.classList.add('gallery__link');
-  linkRef.href = el.preview;
-
-  const galleryImgRef = document.createElement("img");
-  galleryImgRef.classList.add('gallery__image');
-  galleryImgRef.src = el.original;
-  galleryImgRef.setAttribute("data-source", el.original);
-  galleryImgRef.setAttribute("data-index", index);
-  galleryImgRef.alt = el.description;
-  linkRef.appendChild(galleryImgRef);
-  itemRef.appendChild(linkRef);
-
-  fragment.appendChild(itemRef);
+  fragment.append(itemRef);
 });
 
-galleryRef.appendChild(fragment);
-
-let activeIndex = [];
+refs.galleryRef.appendChild(fragment);
 
 function onOpenModal(event) {
-
-  window.addEventListener('keydown', onPressEscape);
-  window.addEventListener('keydown', onPressArrowRight);
-  window.addEventListener('keydown', onPressArrowLeft);
-
   event.preventDefault();
+
   if (event.target.nodeName !== 'IMG') {
     return;
   }
+
   const imageRef = event.target;
   const largeImageURL = imageRef.dataset.source;
-  lightboxImageRef.src = largeImageURL;
-  activeIndex = [imageRef.dataset.index];
+  let indexImageURL = imageRef.dataset.index;
+  indexImageURL = Number(indexImageURL);
 
-  openModalRef.classList.add('is-open');
+  refs.openModalRef.classList.add('is-open');
+  refs.lightboxImageRef.src = largeImageURL;
+  refs.lightboxImageRef.index = indexImageURL;
+
+  window.addEventListener('keydown', onKeyPress);
 }
 
 function onCloseModal() {
-  window.removeEventListener('keydown', onPressEscape);
-  lightboxImageRef.src = '';
-  openModalRef.classList.remove('is-open');
+  refs.openModalRef.classList.remove('is-open');
+  refs.lightboxImageRef.src = '';
+  refs.lightboxImageRef.alt = '';
+
+  window.removeEventListener('keydown', onKeyPress);
 }
 
-function onLightboxClick(e) {
-  if (e.target === e.currentTarget) {
+function onLightboxClick(event) {
+  if (event.target === event.currentTarget) {
     onCloseModal();
   }
 }
 
-function onPressEscape(e) {
-  if (e.code === "Escape") {
-    onCloseModal();
+function onKeyPress(event) {
+  const key = event.code;
+
+  switch (key) {
+    case 'Escape':
+      onCloseModal();
+      break;
+
+    case 'ArrowRight':
+      onPressArrowRight();
+      break;
+
+    case 'ArrowLeft':
+      onPressArrowLeft();
+      break;
+
+    default:
+      console.log('Вы кликнули не туда :');
   }
 }
 
-function onPressArrowRight(e) {
+function onPressArrowRight() {
 
-  if (e.code === 'ArrowRight') {
-    activeIndex = [+activeIndex + +1];
-    if (activeIndex < 0 || activeIndex > gallery.length - 1) {
-      return;
-    }
-    lightboxImageRef.src = gallery[activeIndex].original;
+  if (refs.lightboxImageRef.index + 1 === gallery.length) {
+    refs.lightboxImageRef.index = 0;
+  } else {
+    refs.lightboxImageRef.index++;
   }
+
+  refs.lightboxImageRef.src = gallery[refs.lightboxImageRef.index].original;
+  refs.lightboxImageRef.alt = gallery[refs.lightboxImageRef.index].description;
 }
 
-function onPressArrowLeft(e) {
+function onPressArrowLeft() {
+  console.log(refs.lightboxImageRef.index);
 
-  if (e.code === 'ArrowLeft') {
-    activeIndex = [activeIndex - 1];
-    if (activeIndex < 0 || activeIndex > gallery.length - 1) {
-      return;
-    }
-    lightboxImageRef.src = gallery[activeIndex].original;
+  if (refs.lightboxImageRef.index - 1 < 0) {
+    refs.lightboxImageRef.index = gallery.length - 1;
+  } else {
+    refs.lightboxImageRef.index--;
   }
+
+  refs.lightboxImageRef.src = gallery[refs.lightboxImageRef.index].original;
+  refs.lightboxImageRef.alt = gallery[refs.lightboxImageRef.index].description;
+
+  console.log('left', refs.lightboxImageRef.src);
 }
