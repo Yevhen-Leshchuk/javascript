@@ -3,7 +3,7 @@
  */
 
 // const logger = time => console.log(`Лог каждые ${time}ms - ${Date.now()}`);
-// setInterval(logger, 2000, 2000); //- каждые 2000ms вызываеться fn logger
+// setInterval(logger, 2000, 2000); - каждые 2000ms вызываеться fn logger
 
 // -----------------------
 /*
