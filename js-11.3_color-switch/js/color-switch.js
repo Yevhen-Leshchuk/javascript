@@ -48,8 +48,8 @@ const switcher = {
     this.isActive = true;
 
     this.intervalId = setInterval(() => {
-      let ramdomColor = randomIntegerFromInterval(0, colors.length);
-      refs.body.style.backgroundColor = colors[ramdomColor];
+      let randomColor = randomIntegerFromInterval(0, colors.length);
+      refs.body.style.backgroundColor = colors[randomColor];
     }, 1000);
   },
 
