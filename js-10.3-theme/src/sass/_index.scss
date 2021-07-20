@@ -16,13 +16,13 @@ body {
 }
 
 body.light-theme {
-  background-color: #fff;
+  background-color: #ffffff;
   color: #333333;
 }
 
 body.dark-theme {
   background-color: #333333;
-  color: #fff;
+  color: #ffffff;
 }
 
 .toolbar {
@@ -76,7 +76,7 @@ body.dark-theme {
   height: 100%;
   color: transparent;
   user-select: none;
-  background-color: #333;
+  background-color: #333333;
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
@@ -84,7 +84,7 @@ body.dark-theme {
 
 .theme-switch__marker {
   position: relative;
-  background-color: #fff;
+  background-color: #ffffff;
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -195,14 +195,14 @@ body.dark-theme {
   margin: 4px;
   border-radius: 2px;
   background-color: #3f51b5;
-  color: #fff;
+  color: #ffffff;
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #ffffff;
   background-color: #2196f3;
   border: 0;
   outline: 0;
