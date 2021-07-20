@@ -34,7 +34,7 @@ const colors = [
 const refs = {
   startBtn: document.querySelector('button[data-action="start"]'),
   stopBtn: document.querySelector('button[data-action="stop"]'),
-  body: document.querySelector('body'),
+  bodyRef: document.querySelector('body'),
 };
 
 const switcher = {
@@ -49,7 +49,7 @@ const switcher = {
 
     this.intervalId = setInterval(() => {
       let randomColor = randomIntegerFromInterval(0, colors.length);
-      refs.body.style.backgroundColor = colors[randomColor];
+      refs.bodyRef.style.backgroundColor = colors[randomColor];
     }, 1000);
   },
 
