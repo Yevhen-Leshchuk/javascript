@@ -1,0 +1,11 @@
+{
+  "name": "Alex546",
+  "email": "alexwert@mail.com",
+  "password": "qweralex111"
+}
+
+{
+  "id": "606ccded3906110017aff8f4",
+  "name": "RJ",
+  "number": "760-99-42"
+}
