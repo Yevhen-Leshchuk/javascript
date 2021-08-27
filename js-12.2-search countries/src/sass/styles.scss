@@ -16,6 +16,7 @@ body {
   background-color: #fff;
   color: #212121;
 }
+
 img {
   display: block;
   max-width: 100%;
@@ -36,6 +37,7 @@ img {
   padding: 15px;
   font-size: 30px;
 }
+
 .country {
   display: flex;
   justify-content: center;
@@ -43,12 +45,14 @@ img {
   font-weight: 700;
   list-style: none;
 }
+
 .country__title {
   margin-top: 0;
   margin-bottom: 50px;
   text-align: center;
   font-size: 60px;
 }
+
 .country-list {
   margin-top: 50px;
   margin-right: 70px;
@@ -57,28 +61,34 @@ img {
   list-style: none;
   font-size: 40px;
 }
+
 .country-list__items {
   margin-bottom: 50px;
 }
+
 .country-list__name {
   font-weight: 400;
 }
+
 .country-lang {
   margin-bottom: 30px;
   padding: 0;
   list-style: disc;
 }
+
 .country-lang__items {
   margin-top: 30px;
   margin-bottom: 30px;
   margin-left: 60px;
   font-weight: 400;
 }
+
 .country__flag {
   width: 600px;
   height: max-content;
   border: solid #757575 1px;
 }
+
 .js-countries-list {
   display: flex;
   flex-direction: column;
@@ -86,6 +96,7 @@ img {
   margin: 0 auto;
   font-size: 35px;
 }
+
 .countries-list__item {
   margin-bottom: 20px;
 }
