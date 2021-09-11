@@ -1,5 +1,6 @@
 import refs from './js/refs.js';
 import fetchImages from './js/apiService';
+import 'material-icons/iconfont/material-icons.css';
 import './sass/styles.scss';
 
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
