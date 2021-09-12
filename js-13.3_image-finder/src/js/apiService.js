@@ -1,16 +1,30 @@
-import updateImagesMarkup from './update-images-markup.js';
+const apiKey = '23316117-157eac1742a52b03f27289157';
 
+export default {
+  searchQuery: '',
+  page: 1,
+  fetchImages() {
 
-function fetchImages(searchQuery) {
-  const apiKey = '23316117-157eac1742a52b03f27289157';
-  const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchQuery}&page=1&per_page=12&key=${apiKey}`;
+    const url = `https://pixabay.com/api/?image_type=photo&
+    orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${apiKey}`;
 
-  fetch(url)
-    .then(response => response.json())
-    .then(({ hits }) => {
-      console.log(hits)
-      updateImagesMarkup(hits);
-    });
-}
+    return fetch(url)
+      .then(response => response.json())
+      .then(({ hits }) => {
+        console.log(hits)
+        this.incrementPage();
+        return hits;
+      });
+  },
+  incrementPage() {
+    this.page += 1;
+  },
 
-export default fetchImages;
+  resetPage() {
+    this.page = 1;
+  },
+
+  set query(value) {
+    this.searchQuery = value;
+  },
+};
