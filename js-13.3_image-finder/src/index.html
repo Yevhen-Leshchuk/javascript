@@ -22,14 +22,19 @@
       <input type="text" name="query" autocomplete="off" placeholder="Search images..." />
     </form>
 
-    <ul class="gallery">
+    <ul class="gallery" id="gallery">
       <!-- Список <li> с карточками изображений -->
     </ul>
 
-    <button class="btn btn-primary" type="button">
+    <button class="button btn btn-primary is-hidden" type="button" data-action="load-more">
       <!--disabled-->
-      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-      Loading...
+      <span
+        class="spinner spinner-border spinner-border-sm is-hidden"
+        role="status"
+        aria-hidden="true"
+      ></span>
+
+      <span class="label">Load more</span>
     </button>
 
     <script src="./index.js"></script>
