@@ -11,7 +11,7 @@ export default {
     return fetch(url)
       .then(response => response.json())
       .then(({ hits }) => {
-        console.log(hits)
+        //console.log(hits);
         this.incrementPage();
         return hits;
       });

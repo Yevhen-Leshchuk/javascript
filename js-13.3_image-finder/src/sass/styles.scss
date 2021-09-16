@@ -54,7 +54,6 @@ body {
 }
 
 .gallery li {
-  height: 450px;
   overflow: hidden;
 }
 
@@ -68,4 +67,19 @@ body {
 .gallery a {
   text-decoration: none;
   color: #2a2a2a;
+}
+
+.basicLightbox:after {
+  content: '';
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  width: 2em;
+  height: 2em;
+  background: url(../images/icon-close.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
 }
