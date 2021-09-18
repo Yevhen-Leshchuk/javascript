@@ -1,3 +1,4 @@
+//Логика HTTP-запросов API.
 const apiKey = '23316117-157eac1742a52b03f27289157';
 
 export default {
@@ -11,20 +12,20 @@ export default {
     return fetch(url)
       .then(response => response.json())
       .then(({ hits }) => {
-        //console.log(hits);
+        // console.log(hits);
         this.incrementPage();
         return hits;
       });
   },
-  incrementPage() {
+  incrementPage() { // Метод, добавляет следующую страницу запроса.
     this.page += 1;
   },
 
-  resetPage() {
+  resetPage() {    // Метод, очищает page после ввода следующего запроса.
     this.page = 1;
   },
 
-  set query(value) {
+  set query(value) {   // Метод, записывает в свойство searchQuery значение введнное в  input.
     this.searchQuery = value;
   },
 };

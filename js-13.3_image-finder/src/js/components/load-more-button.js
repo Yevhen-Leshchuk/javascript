@@ -1,3 +1,5 @@
+// Логика кнопки LoadMoreBtn для дозагрузки контента.
+
 export default class LoadMoreBtn {
   constructor({ selector, hidden = false }) {
     this.refs = this.getRefs(selector);
