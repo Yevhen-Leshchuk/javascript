@@ -18,6 +18,12 @@ body {
   color: #212121;
 }
 
+.is-hidden {
+width: 100vw;
+height: 100vh;
+overflow: auto
+}
+
 .search-form {
   display: flex;
   justify-content: center;
@@ -92,19 +98,4 @@ body {
 .material-icons {
   margin-right: 10px;
   color: #afb1b8;
-}
-
-.basicLightbox:after {
-  content: '';
-  position: absolute;
-  top: 1.8rem;
-  right: 1.8rem;
-  width: 2em;
-  height: 2em;
-  background: url(../images/icon-close.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  color: #fff;
-  cursor: pointer;
 }

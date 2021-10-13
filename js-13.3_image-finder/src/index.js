@@ -1,29 +1,22 @@
 import refs from './js/refs';
 import apiService from './js/apiService';
 import updateImagesMarkup from './js/update-images-markup';
-// import LoadMoreBtn from './js/components/load-more-button';
 import getImages from './js/components/modal';
-import { showMessageIncorrectInput } from './js/components/notification';
+import { showMessageIncorrectInput, showMessageNoInput } from './js/components/notification';
 import 'material-icons/iconfont/material-icons.css';
 import './sass/styles.scss';
 
-
-// const loadMoreBtn = new LoadMoreBtn({
-//   selector: 'button[data-action="load-more"]', //экземпляр класса loadMoreBtn.
-//   hidden: true,
-// });
-
-
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
-// loadMoreBtn.refs.button.addEventListener('click', fetchImages); 
 
-
-function searchFormSubmitHandler(event) { // Колбэк для события input.
+function searchFormSubmitHandler(event) {
+  // Колбэк для события input.
   event.preventDefault(); // Метод, предотвращает перезагрузку страницы.
 
-  if (!event.currentTarget.elements.query.value) { // Проверка ввода значения в input.
+  if (!event.currentTarget.elements.query.value) {
+    // Проверка ввода значения в input.
+    showMessageNoInput();
     return;
-  };
+  }
 
   const form = event.currentTarget;
   apiService.query = form.elements.query.value;
@@ -34,22 +27,17 @@ function searchFormSubmitHandler(event) { // Колбэк для события 
   form.reset(); // Очищает форму после "submit".
 }
 
+function fetchImages() {
+  // Функционал.
 
-function fetchImages() { // Функционал.
-  // loadMoreBtn.disable(); // Метод конопки LoadMoreBtn - показывает спиннер, показывает текст на кнопке "Loading...".
-
-  apiService.fetchImages().then(hits => { // Получает ответ от АPI. 
+  apiService.fetchImages().then(hits => {
+    // Получает ответ от АPI.
     updateImagesMarkup(hits); // Парсит разметку на страницу.
-    showMessageIncorrectInput(hits); // Запускает notification (Фото не найдены).
 
-    // if (hits.length === 0) { // Проверка, если от АPI пришел пустой массив - 
-    //   loadMoreBtn.hide();    // запускает метод hide() который прячет кнопку.
-    //   return;
-    // };
-
-    // loadMoreBtn.show(); // Метод конопки LoadMoreBtn - показывает кнопку.
-    // loadMoreBtn.enable(); // Метод конопки LoadMoreBtn - прячет спиннер, показывает текст на кнопке "Load More".
-    // scrollContainer(); // Прокрутка контента в конец viewport.
+    if (hits.length === 0) {
+      showMessageIncorrectInput(hits); // Запускает notification (Фото не найдены).
+      return;
+    }
 
     const imagesRef = document.querySelectorAll('.photo-card__image');
     getImages(imagesRef); // Передает массив элементов для modal.
@@ -59,28 +47,19 @@ function fetchImages() { // Функционал.
   });
 }
 
-
 function clearContainer() {
   refs.imagesContainer.innerHTML = ''; // Очистка контента.
 }
 
-
-function scrollContainer() {
-  refs.imagesContainer.scrollIntoView({ //Прокрутка контента в конец viewport
-    behavior: 'smooth',
-    block: 'end',
-  });
-}
-
 //----------------- intersection-observer
-
 const options = {
-  rootMargin: "20px",
+  rootMargin: '20px',
 };
 
 const onEntry = (entries, observer) => {
+  entries.forEach(entry => {
+    if (refs.modalRef) return; // Проверка, если открыта модалка выходим.
 
-  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       fetchImages();
       const image = entry.target;
@@ -91,6 +70,7 @@ const onEntry = (entries, observer) => {
 
 const io = new IntersectionObserver(onEntry, options); // Экземпляр класса IntersectionObserver.
 
-function getLastImagesRef(lastImagesRef) { // Получает элемент, перебирает.
-  lastImagesRef.forEach((image) => io.observe(image)); // Вешаем observer на каждый элемент.
+function getLastImagesRef(lastImagesRef) {
+  // Получает элемент, перебирает.
+  lastImagesRef.forEach(image => io.observe(image)); // Вешаем observer на каждый элемент.
 }
